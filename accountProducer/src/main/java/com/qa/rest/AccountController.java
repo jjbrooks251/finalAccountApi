@@ -26,15 +26,15 @@ public class AccountController {
 	
 	private AccountService service;
 	
-	@Autowired
 	private RestTemplate rest;
 	
-	@Autowired
 	private JmsTemplate jmsTemplate; 
 	
 	@Autowired
-	public AccountController( AccountService service) {
+	public AccountController( AccountService service, RestTemplate rest, JmsTemplate jmsTemplate) {
 		this.service = service;
+		this.rest = rest;
+		this.jmsTemplate = jmsTemplate;
 	}
 	
 	private void sendToQueue(Account account){
